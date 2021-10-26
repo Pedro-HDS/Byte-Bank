@@ -110,7 +110,6 @@ namespace ByteBank.Modelos
             }
 
             contaDestino.Depositar(valor);
-
         }
 
         public override bool Equals(object obj)
@@ -123,8 +122,8 @@ namespace ByteBank.Modelos
             }
 
             return Numero == outraConta.Numero && Agencia == outraConta.Agencia;
-
         }
+
     }
 
 }
