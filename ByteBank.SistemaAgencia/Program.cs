@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ByteBank.Modelos;
 using ByteBank.Modelos.Funcionarios;
+using ByteBank.SistemaAgencia.Extensoes;
+
+
 
 namespace ByteBank.SistemaAgencia
 {
@@ -12,11 +15,42 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(SomarVarios(1, 2, 3, 5, 56465, 45));
-            Console.WriteLine(SomarVarios(1, 2, 45));
+            List<int> idades = new List<int>();
 
+            idades.Add(1);
+            idades.Add(5);
+            idades.Add(14);
+            idades.Add(25);
+            idades.Add(38);
+            idades.Add(61);
+
+            idades.AdicionarVarios(45, 89, 12);
+            // ListExtensoes.AdicionarVarios(idades, 45, 89, 12);
+
+
+            for (int i = 0; i < idades.Count; i++)
+            {
+                Console.WriteLine(idades[i]);
+            }
 
             Console.ReadLine();
+        }
+
+        static void TestaListaDeObject()
+        {
+            ListaDeObject listaDeIdades = new ListaDeObject();
+
+            listaDeIdades.Adicionar(10);
+            listaDeIdades.Adicionar(5);
+            listaDeIdades.Adicionar(4);
+            listaDeIdades.Adicionar("um texto qualquer");
+            listaDeIdades.AdicionarVarios(16, 23, 60);
+
+            for (int i = 0; i < listaDeIdades.Tamanho; i++)
+            {
+                int idade = (int)listaDeIdades[i];
+                Console.WriteLine($"Idade no indice {i}: {idade}");
+            }
         }
 
         static int SomarVarios(params int[] numeros)
